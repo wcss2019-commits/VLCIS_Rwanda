@@ -1,0 +1,53 @@
+# Data Sources Configuration for VLCIS
+
+data_sources:
+  era5:
+    name: "ERA5-Land Reanalysis"
+    provider: "Copernicus Climate Data Store (CDS)"
+    url: "https://cds.climate.copernicus.eu"
+    temporal_coverage: "1950-Present"
+    temporal_resolution: "hourly"
+    spatial_resolution: "9km"
+    quality_weight: 0.6
+    authentication: "cds_api_key"
+
+  merra2:
+    name: "MERRA-2 Reanalysis"
+    provider: "NASA GMAO"
+    temporal_coverage: "1980-Present"
+    temporal_resolution: "hourly"
+    spatial_resolution: "0.5° x 0.625°"
+    quality_weight: 0.25
+    authentication: "earthdata_username_password"
+
+  noaa:
+    name: "NOAA Global Forecast System"
+    provider: "NOAA"
+    temporal_coverage: "Current"
+    temporal_resolution: "hourly"
+    spatial_resolution: "0.25°"
+    quality_weight: 0.15
+    authentication: "public"
+
+  insitu_stations:
+    name: "In-Situ Weather Stations"
+    provider: "Rwanda Meteorology Agency"
+    temporal_coverage: "1981-Present"
+    temporal_resolution: "hourly"
+    spatial_resolution: "point"
+    data_format: "CSV"
+    data_path: "data/stations/"
+    quality_weight: 0.75
+
+data_fusion:
+  method: "weighted_ensemble"
+  quality_control:
+    enable_anomaly_detection: true
+    enable_bias_correction: true
+    enable_gap_filling: true
+
+update_schedule:
+  data_ingestion_frequency: "hourly"
+  quality_control: "real-time"
+  alert_generation: "real-time"
+  dashboard_update: "15 minutes"
