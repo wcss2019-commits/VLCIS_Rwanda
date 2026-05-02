@@ -1,6 +1,5 @@
-# VLCIS_Rwanda
+# VLCIS Rwanda 🌍  
 Virtual and Localized Climate Information Services – Rwanda
-# VLCIS Rwanda 🌍
 
 AI-powered Climate Risk & Early Warning System for Rwanda.
 
